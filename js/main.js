@@ -527,6 +527,15 @@
   let RM = false, FINE = true, T0 = 0, LAST = 0, TAU = null, MX = 0, MY = 0, MXT = 0, MYT = 0, LAST_SEL = null, RET = null, FLASH_T = 0;
   const FL = {}, CARD = {};
 
+  /* Puente con la portada 3D (js/hero3d.js). Mientras no se active, la portada plana sigue igual. */
+  let HERO3D = false;
+  const HERO = { ready: false, p: 0, t: 0, mx: 0, my: 0, light: 'almuerzo', mode: 'd', active: true, rm: false, s: 1, G: SC.d, vw: 1440, vh: 900 };
+  window.RV_HERO = {
+    state: HERO,
+    enable3D: function () { HERO3D = true; document.documentElement.classList.add('hero3d'); },
+    disable3D: function () { HERO3D = false; document.documentElement.classList.remove('hero3d'); }
+  };
+
   /* ================= Construcción ================= */
   function setD(id, d) { const el = $(id); if (el) el.setAttribute('d', d); }
   function buildLandscape() {
@@ -784,6 +793,7 @@
     R.rockR.style.left = (G.W - LEFT - G.rockOffR).toFixed(1) + 'px';
     const cm = vw < 820 ? 'm' : 'd'; if (cm !== CTA_MODE) buildCta(cm);
     CTA_W = R.cta.clientWidth || vw;
+    HERO.s = s; HERO.G = G; HERO.mode = MODE; HERO.vw = vw; HERO.vh = vh;
   }
   function drift(els, list, amp, vw, left, t) {
     for (let i = 0; i < list.length; i++) {
@@ -793,7 +803,7 @@
     }
   }
   function ambient(t, st, hh, vh) {
-    if (st < hh + 40) {
+    if (st < hh + 40 && !HERO3D) {
       drift(FAR_EL, G.far, 4, VW, LEFT, t); drift(NEAR_EL, G.near, 6, VW, LEFT, t);
       for (let i = 0; i < G.birds.length; i++) {
         const el = BIRD_EL[i]; if (!el) continue;
@@ -807,6 +817,10 @@
   function paint(p, t) {
     const pA = clamp(p / 0.35), pC = clamp((p - 0.7) / 0.3), eA = eio(pA), eC = eio(pC);
     const mx = MODE === 'd' && !RM ? MX : 0, my = MODE === 'd' && !RM ? MY : 0;
+    if (!HERO3D) paintFlat(pA, eA, eC, mx, my, t);
+    paintFront(p, t, pA, pC, eC, mx);
+  }
+  function paintFlat(pA, eA, eC, mx, my, t) {
     R.sky.style.transform = tr(-8 * mx, -(G.skyA * eA + G.skyC * eC) - 5 * my);
     R.far.style.transform = tr(-16 * mx, -(G.farA * eA + 50 * eC) - 6 * my);
     R.near.style.transform = tr(-30 * mx, -G.nearA * eA - 8 * my) + ' scale(' + (1 + 0.6 * eA).toFixed(3) + ')';
@@ -824,6 +838,8 @@
     const land = eio(clamp((pA - 0.55) / 0.45)), bottom = yBase + G.avoH / 2 * s;
     R.shadow.style.transform = tr(-10 * mx, bottom - 22) + ' scale(' + ((0.45 + 0.55 * land) * s).toFixed(3) + ')';
     R.shadow.style.opacity = (land * 0.9).toFixed(3);
+  }
+  function paintFront(p, t, pA, pC, eC, mx) {
     for (let i = 0; i < LETTERS.length; i++) {
       const el = CH_EL[i]; if (!el) continue;
       const Lt = LETTERS[i], ti = RM ? 1 : clamp((t - 0.2 - i * 0.05) / 0.9), b = ti >= 1 ? 1 : backOut(ti), u = 1 - b;
@@ -858,6 +874,8 @@
     if (TAU !== want) { const step = dt / 1000 / (want > TAU ? DUR_IN : DUR_OUT); TAU = want > TAU ? Math.min(want, TAU + step) : Math.max(want, TAU - step); }
     const km = 1 - Math.exp(-dt / 420); MX += (MXT - MX) * km; MY += (MYT - MY) * km;
     const t = (now - T0) / 1000;
+    HERO.p = tauP(TAU); HERO.t = RM ? 60 : t; HERO.light = S.light; HERO.active = st < hh + 40; HERO.rm = RM;
+    HERO.mx = MODE === 'd' && !RM ? MX : 0; HERO.my = MODE === 'd' && !RM ? MY : 0; HERO.ready = true;
     ambient(RM ? 0 : t, st, hh, vh);
     if (st < hh + 40) paint(tauP(TAU), RM ? 60 : t);
     const navL = st > hh - 70;
