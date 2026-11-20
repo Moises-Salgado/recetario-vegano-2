@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recetario Vegano</title>
+<meta name="description" content="Recetas veganas con ingredientes que se consiguen en Chile, para desayuno, almuerzo, once y cena. Con información nutricional y una semana planificada con lista de compras.">
+<meta name="theme-color" content="#3f7fae">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Recetario Vegano">
+<meta property="og:description" content="Recetas veganas con ingredientes de Chile para desayuno, almuerzo, once y cena.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4c8 0 14 7 16 15 2 9 11 16 11 30 0 9-12 13-27 13S5 58 5 49c0-14 9-21 11-30 2-8 8-15 16-15z' fill='%2336531a'/%3E%3Cpath d='M32 9c6 0 11 6 12 12 2 8 10 14 10 27 0 7-10 10-22 10S10 55 10 48c0-13 8-19 10-27 1-6 6-12 12-12z' fill='%23c6d866'/%3E%3Ccircle cx='32' cy='42' r='10' fill='%2393572b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#recetas">Saltar a las recetas</a>
+
+<svg class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="grainF" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"></feGaussianBlur></filter>
+    <filter id="cloudBlur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="2.2"></feGaussianBlur></filter>
+    <radialGradient id="cloudFill" cx="0.45" cy="0.32" r="0.75"><stop offset="0" stop-color="#ffffff"></stop><stop offset="0.6" stop-color="#f6faff"></stop><stop offset="1" stop-color="#d5e3f0"></stop></radialGradient>
+    <linearGradient id="cloudShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0"></stop><stop offset="1" stop-color="#9db7ce" stop-opacity="0.55"></stop></linearGradient>
+    <radialGradient id="avoSkin" cx="0.5" cy="0.6" r="0.7"><stop offset="0" stop-color="#557a26"></stop><stop offset="0.72" stop-color="#36531a"></stop><stop offset="1" stop-color="#1f300c"></stop></radialGradient>
+    <radialGradient id="avoFlesh" cx="0.5" cy="0.64" r="0.62"><stop offset="0" stop-color="#f6f3b2"></stop><stop offset="0.38" stop-color="#e5e78c"></stop><stop offset="0.68" stop-color="#c6d866"></stop><stop offset="0.9" stop-color="#97ba3f"></stop><stop offset="1" stop-color="#78a02e"></stop></radialGradient>
+    <radialGradient id="avoPit" cx="0.38" cy="0.32" r="0.78"><stop offset="0" stop-color="#c88a52"></stop><stop offset="0.42" stop-color="#93572b"></stop><stop offset="0.8" stop-color="#5f3518"></stop><stop offset="1" stop-color="#3b1f0c"></stop></radialGradient>
+    <radialGradient id="rockA" cx="0.34" cy="0.22" r="0.95"><stop offset="0" stop-color="#f1e6d1"></stop><stop offset="0.4" stop-color="#d8c7a8"></stop><stop offset="0.78" stop-color="#b19d7e"></stop><stop offset="1" stop-color="#8b785b"></stop></radialGradient>
+    <linearGradient id="rockAO" x1="0" y1="0" x2="0" y2="1"><stop offset="0.45" stop-color="#3b2f1c" stop-opacity="0"></stop><stop offset="1" stop-color="#3b2f1c" stop-opacity="0.45"></stop></linearGradient>
+    <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7c26a"></stop><stop offset="0.3" stop-color="#8aaa4c"></stop></linearGradient>
+    <linearGradient id="hillM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#90ad4c"></stop><stop offset="0.3" stop-color="#7a9a3d"></stop></linearGradient>
+    <linearGradient id="hillF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a9a3a"></stop><stop offset="0.35" stop-color="#6d8b34"></stop><stop offset="1" stop-color="#4b651f"></stop></linearGradient>
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0.3" stop-color="#dcebf4" stop-opacity="0"></stop><stop offset="1" stop-color="#dcebf4" stop-opacity="0.85"></stop></linearGradient>
+    <g id="cloud1" filter="url(#cloudBlur)"><ellipse cx="205" cy="160" rx="170" ry="44" fill="url(#cloudFill)"></ellipse><circle cx="110" cy="128" r="60" fill="url(#cloudFill)"></circle><circle cx="182" cy="96" r="76" fill="url(#cloudFill)"></circle><circle cx="262" cy="110" r="66" fill="url(#cloudFill)"></circle><circle cx="328" cy="140" r="46" fill="url(#cloudFill)"></circle><ellipse cx="205" cy="170" rx="160" ry="32" fill="url(#cloudShade)"></ellipse></g>
+    <g id="cloud2" filter="url(#cloudBlur)"><ellipse cx="215" cy="164" rx="155" ry="38" fill="url(#cloudFill)"></ellipse><circle cx="90" cy="140" r="50" fill="url(#cloudFill)"></circle><circle cx="150" cy="110" r="64" fill="url(#cloudFill)"></circle><circle cx="222" cy="98" r="72" fill="url(#cloudFill)"></circle><circle cx="292" cy="124" r="56" fill="url(#cloudFill)"></circle><circle cx="342" cy="150" r="38" fill="url(#cloudFill)"></circle><ellipse cx="215" cy="172" rx="148" ry="28" fill="url(#cloudShade)"></ellipse></g>
+    <g id="cloud3" filter="url(#cloudBlur)"><ellipse cx="210" cy="158" rx="175" ry="48" fill="url(#cloudFill)"></ellipse><circle cx="120" cy="120" r="70" fill="url(#cloudFill)"></circle><circle cx="212" cy="90" r="84" fill="url(#cloudFill)"></circle><circle cx="300" cy="122" r="62" fill="url(#cloudFill)"></circle><ellipse cx="210" cy="168" rx="166" ry="34" fill="url(#cloudShade)"></ellipse></g>
+    <g id="cloud4" filter="url(#cloudBlur)"><ellipse cx="200" cy="166" rx="150" ry="34" fill="url(#cloudFill)"></ellipse><circle cx="80" cy="150" r="44" fill="url(#cloudFill)"></circle><circle cx="140" cy="120" r="58" fill="url(#cloudFill)"></circle><circle cx="206" cy="110" r="62" fill="url(#cloudFill)"></circle><circle cx="266" cy="130" r="54" fill="url(#cloudFill)"></circle><circle cx="322" cy="152" r="40" fill="url(#cloudFill)"></circle><ellipse cx="200" cy="172" rx="142" ry="26" fill="url(#cloudShade)"></ellipse></g>
+    <g id="avoArt">
+      <path d="M200 28C250 28 290 70 300 125C312 180 372 230 378 320C386 420 300 482 200 482C100 482 14 420 22 320C28 230 88 180 100 125C110 70 150 28 200 28Z" fill="url(#avoSkin)"></path>
+      <path d="M200 28C250 28 290 70 300 125C312 180 372 230 378 320C386 420 300 482 200 482C100 482 14 420 22 320C28 230 88 180 100 125C110 70 150 28 200 28Z" transform="translate(200 270) scale(0.935) translate(-200 -270)" fill="url(#avoFlesh)"></path>
+      <path d="M200 28C250 28 290 70 300 125C312 180 372 230 378 320C386 420 300 482 200 482C100 482 14 420 22 320C28 230 88 180 100 125C110 70 150 28 200 28Z" transform="translate(200 270) scale(0.935) translate(-200 -270)" fill="none" stroke="#6f9628" stroke-width="10" opacity="0.5" filter="url(#soft)"></path>
+      <ellipse cx="140" cy="210" rx="44" ry="96" transform="rotate(14 140 210)" fill="#ffffff" opacity="0.22" filter="url(#soft)"></ellipse>
+      <circle cx="204" cy="338" r="98" fill="#a9bd4d" opacity="0.55" filter="url(#soft)"></circle>
+      <circle cx="200" cy="332" r="82" fill="url(#avoPit)"></circle>
+      <ellipse cx="172" cy="300" rx="26" ry="16" fill="#ffffff" opacity="0.38" filter="url(#soft)"></ellipse>
+      <path d="M200 28C250 28 290 70 300 125C312 180 372 230 378 320C386 420 300 482 200 482C100 482 14 420 22 320C28 230 88 180 100 125C110 70 150 28 200 28Z" fill="none" stroke="#1a2a09" stroke-width="2.5" opacity="0.7"></path>
+    </g>
+  </defs>
+</svg>
+
+<div id="app">
+  <header class="nav">
+    <a class="logo pacifico" href="#inicio" data-act="go" data-v="top">Recetario Vegano</a>
+    <nav class="navc" aria-label="Principal">
+      <a class="pill on" href="#recetas" data-act="go" data-v="recetas"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"></path></svg>Recetas</a>
+      <a class="pill" href="#inicio" data-act="go" data-v="momentos">Momentos</a>
+      <a class="pill" href="#nutricion" data-act="go" data-v="nutricion">Nutrición</a>
+      <a class="pill" href="#como" data-act="go" data-v="como">Cómo funciona</a>
+    </nav>
+    <div class="navr">
+      <button class="sq" type="button" id="cartBtn" data-act="drawer" aria-label="Abrir Mi semana"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h16l-1.6 9.2a1 1 0 0 1-1 .8H6.6a1 1 0 0 1-1-.8zM8.5 10L12 4.5L15.5 10M9.5 14v3M14.5 14v3"></path></svg><span class="badge" id="badge" hidden>0</span></button>
+      <button class="sq glassq burger" type="button" id="burger" data-act="menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="mpanel"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-label="Portada">
+      <div class="stage" id="stage">
+        <div class="scene back" id="sceneBack">
+          <div class="layer sky" id="sky">
+            <svg class="grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grainF)" opacity="0.06"></rect></svg>
+            <div class="sky-art">
+              <div class="glow g-almuerzo"></div>
+              <div class="glow g-desayuno"></div>
+              <div class="glow g-once"></div>
+              <svg class="glow g-cena" viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="74" fill="#eef0ff" opacity="0.1"></circle><circle cx="80" cy="80" r="46" fill="#eef0ff" opacity="0.14"></circle><path d="M100 50A34 34 0 1 0 112 98A27 27 0 1 1 100 50Z" fill="#f6f1dc"></path></svg>
+              <svg class="stars" id="stars" aria-hidden="true"><path id="starsPath" fill="#ffffff"></path></svg>
+              <div id="birds"></div>
+            </div>
+          </div>
+          <div class="layer clouds" id="far"></div>
+          <div class="layer clouds near" id="near"></div>
+          <div class="layer mount" id="mount">
+            <svg viewBox="-1600 0 4640 500" preserveAspectRatio="none" aria-hidden="true">
+              <path id="mFar" fill="#b4c7d8"></path>
+              <path id="mSnow" fill="#f2f6f9"></path>
+              <path id="mNear" fill="#97afc3"></path>
+              <rect x="-1600" y="0" width="4640" height="500" fill="url(#haze)"></rect>
+            </svg>
+          </div>
+          <div class="layer meadow" id="meadow">
+            <svg class="mw" viewBox="-1000 0 3440 1300" preserveAspectRatio="none" aria-hidden="true">
+              <path id="hBack" fill="url(#hillB)"></path>
+              <path id="hBack2" fill="#e4f0f6" opacity="0.22"></path>
+              <path id="fBack" fill="#f3c83a" opacity="0.85"></path>
+              <path id="hMid" fill="url(#hillM)"></path>
+            </svg>
+            <svg class="mw sway" viewBox="-1000 0 3440 1300" preserveAspectRatio="none" aria-hidden="true">
+              <path id="gMid" fill="none" stroke="#86a648" stroke-width="1.6"></path>
+              <path id="fMid" fill="#f3c83a" opacity="0.92"></path>
+            </svg>
+            <svg class="mw" viewBox="-1000 0 3440 1300" preserveAspectRatio="none" aria-hidden="true">
+              <path id="hFront" fill="url(#hillF)"></path>
+            </svg>
+            <svg class="mw sway s2" viewBox="-1000 0 3440 1300" preserveAspectRatio="none" aria-hidden="true">
+              <path id="gFront" fill="none" stroke="#5f7d2a" stroke-width="2.2"></path>
+              <path id="fFront" fill="#f3c83a"></path>
+              <path id="cFront" fill="#d99a1e"></path>
+            </svg>
+          </div>
+          <svg class="layer rockL" id="rockL" viewBox="0 0 560 860" aria-hidden="true">
+            <path class="p-rl" fill="url(#rockA)"></path>
+            <path class="p-rl" fill="url(#rockAO)"></path>
+            <ellipse cx="230" cy="150" rx="120" ry="70" fill="#ffffff" opacity="0.22" filter="url(#soft)"></ellipse>
+            <path id="rlc" fill="none" stroke="#7d6b50" stroke-width="2.4" opacity="0.45"></path>
+            <path class="p-rl2" fill="url(#rockA)"></path>
+            <path class="p-rl2" fill="url(#rockAO)"></path>
+          </svg>
+          <svg class="layer rockR" id="rockR" viewBox="0 0 580 880" aria-hidden="true">
+            <path class="p-rr" fill="url(#rockA)"></path>
+            <path class="p-rr" fill="url(#rockAO)"></path>
+            <ellipse cx="320" cy="150" rx="120" ry="70" fill="#ffffff" opacity="0.2" filter="url(#soft)"></ellipse>
+            <path id="rrc" fill="none" stroke="#7d6b50" stroke-width="2.4" opacity="0.45"></path>
+            <path class="p-rr2" fill="url(#rockA)"></path>
+            <path class="p-rr2" fill="url(#rockAO)"></path>
+          </svg>
+          <div class="layer shadow" id="shadow"></div>
+          <svg class="layer avo" id="avo" viewBox="0 0 400 500" role="img" aria-label="Media palta flotando entre las nubes"><use href="#avoArt"></use></svg>
+        </div>
+
+        <div class="tint t-desayuno"></div>
+        <div class="tint t-once"></div>
+        <div class="tint t-cena"></div>
+
+        <div class="scene front" id="sceneFront">
+          <div class="layer world" id="world">
+            <svg class="lines" viewBox="0 0 1440 900" aria-hidden="true"><g id="linesG" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></g></svg>
+            <div id="labels"></div>
+          </div>
+          <h1 class="title anton"><span class="sr">Recetario Vegano</span><span aria-hidden="true" id="titleArt"></span></h1>
+          <h2 class="hl anton"><span class="mask"><span class="hl-in" id="hl0">Ingredientes</span></span><span class="mask"><span class="hl-in" id="hl1">que se notan</span></span></h2>
+          <div class="hl-btns" id="btns">
+            <a class="btn-dark" href="#recetas" data-act="go" data-v="recetas" tabindex="-1">Ver recetas <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+            <a class="btn-glass glass" href="#nutricion" data-act="go" data-v="nutricion" tabindex="-1">Nutrición vegana</a>
+          </div>
+          <div class="cue" id="cue" aria-hidden="true">Desliza para empezar<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="recetas" aria-labelledby="t-recetas">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">TODAS LAS RECETAS</p>
+          <h2 id="t-recetas" class="h2 anton">Recetas para cada momento</h2>
+        </div>
+        <p class="lede">Doce recetas con ingredientes de Chile, cada momento con su color. Filtra, busca por ingrediente y arma tu semana.</p>
+      </div>
+      <div class="filters">
+        <div class="chips" id="fMeals" role="group" aria-label="Momento del día"></div>
+        <div class="seg" id="fKinds" role="group" aria-label="Tiempo de preparación"></div>
+        <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13a6.5 6.5 0 0 0 0-13zM15.5 15.5L20 20"></path></svg><span class="sr">Buscar recetas</span><input class="search-in" id="q" type="search" placeholder="Busca por nombre o ingrediente" autocomplete="off"></label>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty" hidden>
+        <p id="emptyMsg">No encontramos recetas con esos filtros.</p>
+        <button class="btn-line" type="button" data-act="clear">Limpiar filtros</button>
+      </div>
+      <noscript><p class="empty">Activa JavaScript para ver las recetas.</p></noscript>
+    </section>
+
+    <section class="sec" id="nutricion" aria-labelledby="t-nutri">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">INFORMACIÓN NUTRICIONAL</p>
+          <h2 id="t-nutri" class="h2 anton">Nutrición vegana, sin enredos</h2>
+        </div>
+        <p class="lede">Lo básico para comer vegano y estar bien: qué cuidar, dónde encontrarlo y un consejo práctico para cada cosa.</p>
+      </div>
+      <div class="ngrid" id="ngrid"></div>
+      <p class="disclaimer">Información general para orientarte: no reemplaza la consulta con un nutricionista o médico, sobre todo si tienes alguna condición de salud, estás embarazada o es para niños.</p>
+    </section>
+
+    <section class="sec" id="como" aria-labelledby="t-como">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">SIN COMPLICARSE</p>
+          <h2 id="t-como" class="h2 anton">Cómo funciona</h2>
+        </div>
+      </div>
+      <ol class="steps">
+        <li class="step rv"><span class="num anton">01</span><h3>Elegir</h3><p>Filtra por momento del día o por tiempo, busca por ingrediente y abre la receta para ver los pasos.</p></li>
+        <li class="step rv c2"><span class="num anton">02</span><h3>Planificar</h3><p>Toca + en lo que quieras cocinar: en Mi semana eliges el día y se arma la lista de compras con todo lo que lleva.</p></li>
+        <li class="step rv c3"><span class="num anton">03</span><h3>Cocinar</h3><p>Pasos cortos y claros, sin técnicas raras. Lo que sobra casi siempre se guarda bien para el otro día.</p></li>
+      </ol>
+    </section>
+
+    <section class="cta" id="cta" aria-labelledby="t-cta">
+      <div class="cta-clouds" id="ctaClouds" aria-hidden="true"></div>
+      <svg class="mini-avo" viewBox="0 0 400 500" aria-hidden="true"><use href="#avoArt"></use></svg>
+      <h2 id="t-cta" class="cta-t anton">¿Qué comemos hoy?</h2>
+      <a class="btn-dark" href="#recetas" data-act="go" data-v="recetas">Ver recetas <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-top">
+      <p class="foot-logo pacifico">Recetario Vegano</p>
+      <p class="foot-lede">Recetas veganas con ingredientes de feria, para desayuno, almuerzo, once y cena.</p>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <p class="fh">RECETAS</p>
+        <a href="#recetas" data-act="meal" data-v="desayuno">Desayuno</a>
+        <a href="#recetas" data-act="meal" data-v="almuerzo">Almuerzo</a>
+        <a href="#recetas" data-act="meal" data-v="once">Once</a>
+        <a href="#recetas" data-act="meal" data-v="cena">Cena</a>
+      </div>
+      <div>
+        <p class="fh">EL RECETARIO</p>
+        <a href="#nutricion" data-act="go" data-v="nutricion">Nutrición vegana</a>
+        <a href="#recetas" data-act="drawer">Mi semana</a>
+        <a href="#como" data-act="go" data-v="como">Cómo funciona</a>
+      </div>
+      <div>
+        <p class="fh">PROYECTO</p>
+        <a href="https://github.com/Moises-Salgado/recetario-vegano-2">Código en GitHub</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 Recetario Vegano · Hecho en Chile, con ingredientes de feria</p>
+  </footer>
+</div>
+
+<div class="mpanel" id="mpanel" aria-hidden="true">
+  <button class="sq mclose" type="button" id="mclose" data-act="menu" aria-label="Cerrar menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <nav class="mlinks" aria-label="Menú">
+    <a class="anton" href="#recetas" data-act="go" data-v="recetas">Recetas</a>
+    <a class="anton" href="#inicio" data-act="go" data-v="momentos">Momentos</a>
+    <a class="anton" href="#nutricion" data-act="go" data-v="nutricion">Nutrición</a>
+    <a class="anton" href="#recetas" data-act="drawer">Mi semana</a>
+    <a class="anton" href="#como" data-act="go" data-v="como">Cómo funciona</a>
+  </nav>
+  <p class="mfoot">Recetas veganas con ingredientes de Chile.</p>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="scrim" data-act="close-modal"></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="sq sclose" type="button" id="m-close" data-act="close-modal" aria-label="Cerrar receta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <div class="sinner" id="sinner">
+      <div class="shero" id="mHero"><div id="mArt"></div></div>
+      <div class="sbody" id="sbody"></div>
+    </div>
+  </div>
+</div>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-act="close-drawer"></div>
+  <div class="dpanel" role="dialog" aria-modal="true" aria-labelledby="d-title">
+    <div class="dhead">
+      <h2 id="d-title" class="anton">Mi semana</h2>
+      <button class="sq" type="button" id="d-close" data-act="close-drawer" aria-label="Cerrar Mi semana"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+    <p class="dsub" id="dSub"></p>
+    <div id="dBody"></div>
+  </div>
+</div>
+</body>
+</html>
