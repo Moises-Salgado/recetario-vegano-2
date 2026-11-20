@@ -6,7 +6,7 @@ Recetas veganas con ingredientes que se consiguen en Chile, para desayuno, almue
 
 ## Qué tiene
 
-- Portada animada: con un scroll corto la palta aterriza en el prado y aparecen los cuatro momentos del día. Las nubes, los pájaros y las flores se mueven solos.
+- Portada en 3D hecha con Three.js: la palta flota entre nubes con frutas y verduras girando a su alrededor, y con un scroll corto aterriza en la pradera y aparecen los cuatro momentos del día. La cámara sigue el mouse y el cielo cambia según el momento (de noche aparecen la luna y las estrellas). Si el navegador no tiene WebGL 2, se muestra la portada plana.
 - 12 recetas con filtros por momento, rápidas o elaboradas, búsqueda por nombre o ingrediente e íconos de gluten, picante, alta en proteína, alta en azúcar y soya.
 - Ficha de cada receta con ingredientes y pasos.
 - Favoritas y **Mi semana**: eliges el día de cada receta y se arma la lista de compras. Todo se guarda en el navegador (localStorage).
@@ -18,9 +18,10 @@ Recetas veganas con ingredientes que se consiguen en Chile, para desayuno, almue
 index.html        estructura de la página
 css/styles.css    estilos
 js/main.js        textos (CONTENT), dibujos SVG del paisaje y los platos, animaciones y lógica
+js/hero3d.js      portada 3D: cielo, nubes, montañas, pradera, rocas, palta, frutas y verduras
 ```
 
-No usa librerías ni pasos de compilación: es HTML, CSS y JavaScript puros.
+No hay pasos de compilación: es HTML, CSS y JavaScript. Solo la portada 3D usa una librería, Three.js, que se carga desde jsDelivr.
 
 ## Editar textos y recetas
 
@@ -28,7 +29,7 @@ Todo el contenido está en el objeto `CONTENT`, al inicio de `js/main.js`: momen
 
 ## Probar en tu computador
 
-Abre `index.html` en el navegador, o sirve la carpeta con cualquier servidor estático, por ejemplo:
+Sirve la carpeta con cualquier servidor estático (abriendo `index.html` directamente se ve la portada plana, porque el navegador no carga módulos de JavaScript desde archivos locales), por ejemplo:
 
 ```
 python -m http.server 8000
